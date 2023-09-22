@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Methods Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #lengthOutput, #toStringOutput, #popOutput {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Array Methods Demo</h1>
+
+    <!-- Input field to add elements to the array -->
+    <label for="addElement">Add Element:</label>
+    <input type="text" id="addElement" placeholder="Enter an element">
+    <button onclick="addElementToArray()">Add</button>
+
+    <br>
+
+    <!-- Array to hold elements -->
+    <script>
+        var myArray = [];
+    </script>
+
+    <!-- Display array length -->
+    <button onclick="displayArrayLength()">Get Array Length</button>
+    <p id="lengthOutput"></p>
+
+    <!-- Display array as a string -->
+    <button onclick="displayArrayToString()">Convert to String</button>
+    <p id="toStringOutput"></p>
+
+    <!-- Remove and display the last element -->
+    <button onclick="displayArrayPop()">Pop Last Element</button>
+    <p id="popOutput"></p>
+
+    <script>
+        // Function to add an element to the array
+        function addElementToArray() {
+            var addElementInput = document.getElementById("addElement");
+            var element = addElementInput.value;
+            if (element) {
+                myArray.push(element);
+                addElementInput.value = "";
+            }
+        }
+
+        // Function to display the array length
+        function displayArrayLength() {
+            var lengthOutput = document.getElementById("lengthOutput");
+            lengthOutput.textContent = "Array Length: " + myArray.length;
+        }
+
+        // Function to display the array as a string
+        function displayArrayToString() {
+            var toStringOutput = document.getElementById("toStringOutput");
+            toStringOutput.textContent = "Array as String: " + myArray.toString();
+        }
+
+        // Function to remove and display the last element of the array
+        function displayArrayPop() {
+            var popOutput = document.getElementById("popOutput");
+            if (myArray.length > 0) {
+                var poppedElement = myArray.pop();
+                popOutput.textContent = "Popped Element: " + poppedElement;
+            } else {
+                popOutput.textContent = "Array is empty!";
+            }
+        }
+    </script>
+</body>
+</html>
